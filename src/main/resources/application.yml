@@ -1,0 +1,22 @@
+security:
+  oauth2:
+    client:
+      client-id: first-client
+      client-secret: noonewilleverguess
+      scope: read,write
+      auto-approve-scopes: '.*'
+
+db:
+  token:
+    datasource:
+      driver-class: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost:5101/sso_token
+      user: pt
+      password: abc
+      properties:
+        ssl: 'false'
+        sslmode: 'disable'
+
+liquibaseToken:
+  run: true
+  change-log: classpath:liquibase/sso-token/changelog.xml
